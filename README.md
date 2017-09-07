@@ -2,12 +2,31 @@
 
 Git subtree training (main repo)
 
+In this repository, I'll show you how to use git subtree in hands-on style.
+
+You'll fork the repository and reference the [sub repository](https://github.com/satoshikumano/subtree-training-sub)
+as a submodule inside the forked repository.
+
+## 0. Fork this repository and clone it in your wokring dir.
+
+- Click [fork button]([https://github.com/satoshikumano/subtree-training-main#fork-destination-box]).
+
+- Clone your fork in your local PC.
+
+```
+git clone {your-fork-repository-url}
+cd subtree-training-main
+```
+
+(From now on, all operations are done in subtree-training-main directory.)
+
 ## 1. Add subtree.
 
 Add [subtree-training-sub](https://github.com/satoshikumano/subtree-training-sub) repository as subtree in ./sub directory using --prefix option.
 
 ```
-$ git checkout -b subtree-training # Make a feature branch
+# Make a feature branch
+$ git checkout -b subtree-training
 $ git subtree add --prefix sub git@github.com:satoshikumano/subtree-training-sub.git master --squash
 ```
 
@@ -35,7 +54,10 @@ Date:   Thu Sep 7 15:15:40 2017 +0900
 
 ## 2. Fetch updates in sub repository.
 
-Assume `branch1` branch in the sub repository is pushed and you want to pull the changes in the branch to the main repository.
+Assume [branch1](https://github.com/satoshikumano/subtree-training-sub/tree/branch1) branch in the sub repository is pushed and you want to pull the changes in the branch to the main repository.
+
+(Note that in real project you'll probably update the reference commit on `master` or `develop` branch.
+Using `branch1` here is just to simplify the flow and focus on key concepts in subtree.)
 
 - Add remote to shoten the command line inputs.
 
