@@ -89,9 +89,9 @@ $ git commit
 Alternatively, you can omit `--squash` option.
 In this case, all historiy objects in the subrepository are copied to the main repo.
 
-### 2.1 Using `git subtree pull` to pull the changes in the sub repository.
+#### [WIP] Using `git subtree pull` to pull the changes in the sub repository.
 
-It doesn't works well.
+**It doesn't works well.**
 
 Pull the changes in the sub repository with `--squash` option
 
