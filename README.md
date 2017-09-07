@@ -5,7 +5,7 @@ Git subtree training (main repo)
 In this repository, I'll show you how to use git subtree in hands-on style.
 
 You'll fork the repository and reference the [sub repository](https://github.com/satoshikumano/subtree-training-sub)
-as a submodule inside the forked repository.
+as a subtree inside the forked repository.
 
 ## 0. Fork this repository and clone it in your wokring dir.
 
