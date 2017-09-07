@@ -13,7 +13,7 @@ as a submodule inside the forked repository.
 
 - Clone your fork in your local PC.
 
-```
+```sh
 git clone {your-fork-repository-url}
 cd subtree-training-main
 ```
@@ -24,7 +24,7 @@ cd subtree-training-main
 
 Add [subtree-training-sub](https://github.com/satoshikumano/subtree-training-sub) repository as subtree in ./sub directory using --prefix option.
 
-```
+```sh
 # Make a feature branch
 $ git checkout -b subtree-training
 $ git subtree add --prefix sub git@github.com:satoshikumano/subtree-training-sub.git master --squash
@@ -33,7 +33,7 @@ $ git subtree add --prefix sub git@github.com:satoshikumano/subtree-training-sub
 You can confirm sub/README.md is added in the main repository.
 And there's new commits in the main repository made by subtree command.
 
-```
+```sh
 $ git log
 commit e902fbdab9827809666a4499a15454c2828a5414 (HEAD -> sample)
 Merge: fef3203 f86ad4d
@@ -61,13 +61,13 @@ Using `branch1` here is just to simplify the flow and focus on key concepts in s
 
 - Add remote to shoten the command line inputs.
 
-```
+```sh
 $ git remote add sub-origin git@github.com:satoshikumano/subtree-training-sub.git
 ```
 
 - Pull the changes in the sub repository
 
-```
+```sh
 $ git pull -s subtree sub-origin branch1 --allow-unrelated-histories --squash
 From github.com:satoshikumano/subtree-training-sub
  * branch            branch1    -> FETCH_HEAD
@@ -81,7 +81,7 @@ To deal with the situation,
 
 Edit sub/README.md and resolve conflict
 
-```
+```sh
 $ git add sub/README.md
 $ git commit
 ```
@@ -94,7 +94,8 @@ In this case, all historiy objects in the subrepository are copied to the main r
 It doesn't works well.
 
 Pull the changes in the sub repository with `--squash` option
-```
+
+```sh
 $ git subtree pull --prefix ./sub sub-origin branch1 --squash
 warning: no common commits
 remote: Counting objects: 6, done.
@@ -109,7 +110,7 @@ Can't squash-merge: './sub' was never added.
 
 Pull the changes in the sub repository without `--squash` option
 
-```
+```sh
 $ git subtree pull --prefix ./sub sub-origin branch1 --squash
 From github.com:satoshikumano/subtree-training-sub
  * branch            branch1    -> FETCH_HEAD
@@ -126,7 +127,7 @@ It would not happens in later or older version.
 After you have updated the sub repository reference, push the working branch and make a PR to master or deveplop branch
 So that you team member can use the main repository code with the latest sub repository references.
 
-```
+```sh
 $ git push origin subtree-training
 ```
 
